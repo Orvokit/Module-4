@@ -1,0 +1,26 @@
+//Перед старостой группы стоит задача разделить весь курс, состоящий из N студентов, на K групп. Напишите программу, которая поможет старосте сделать это: он вводит N, K и порядковый номер студента, а программа определяет, в какую группу он попадёт.
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+  var students, groups, number, studentsInOneGroup, studentsGroup int
+	fmt.Print("Введите количество студентов: ")
+  fmt.Scan(&students)
+  fmt.Print("Введите количество групп: ")
+  fmt.Scan(&groups)
+  fmt.Print("Введите порядковый номер студента: ")
+  fmt.Scan(&number)
+
+  studentsInOneGroup = students / groups
+  if number == students {
+    studentsGroup = number / studentsInOneGroup
+    fmt.Println("Студент в группе номер", studentsGroup)
+  } else {
+    studentsGroup = number / studentsInOneGroup + 1
+    fmt.Println("Студент в группе номер", studentsGroup)
+  } 
+}
