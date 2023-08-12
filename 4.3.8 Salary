@@ -1,0 +1,44 @@
+/* В отделе маркетинга работают 3 сотрудника. У каждого — разные зарплаты. Напишите программу, которая вычисляет разницу между самой высокой и низкой зарплатой сотрудника, а также среднюю зарплату отдела. */
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+  var salary1, salary2, salary3, difference, average int
+	fmt.Print("Введите зарплату первого сотрудника: ")
+  fmt.Scan(&salary1)
+  fmt.Print("Введите зарплату второго сотрудника: ")
+  fmt.Scan(&salary2)
+  fmt.Print("Введите зарплату третьего сотрудника: ")
+  fmt.Scan(&salary3)
+
+  if salary1 <= 0 || salary2 <= 0 || salary3 <= 0 {
+    fmt.Println("Зарплата не может быть меньше или равна нулю!")
+    return
+  } else if salary1 > salary2 && salary1 > salary3 {
+    if salary2 < salary3 {
+      difference = salary1 - salary2
+    } else if salary3 < salary2 {
+        difference = salary1 - salary3
+      }
+  } else if salary2 > salary1 && salary2 > salary3 {
+    if salary1 < salary3 {
+      difference = salary2 - salary1
+    } else if salary3 < salary1 {
+      difference = salary2 - salary3
+    }
+  } else if salary3 > salary1 && salary3 > salary2 {
+    if salary1 < salary2 {
+      difference = salary3 - salary1
+    } else if salary2 < salary1 {
+      difference = salary3 - salary2
+    }
+  }
+  average = (salary1 + salary2 + salary3) / 3
+
+  fmt.Println("Разность наибольшей и наименьшей зарплаты сотрудников:", difference)
+  fmt.Println("Средняя зарплата по отделу:", average) 
+}
