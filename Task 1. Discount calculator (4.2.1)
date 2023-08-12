@@ -1,0 +1,24 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var product1, product2, product3 int
+  fmt.Print("Введите стоимость 1ого товара: ")
+  fmt.Scan(&product1)
+  fmt.Print("Введите стоимость 2ого товара: ")
+  fmt.Scan(&product2)
+  fmt.Print("Введите стоимость 3его товара: ")
+  fmt.Scan(&product3)
+
+  summ := product1 + product2 + product3
+
+  if summ > 10000 {
+    summ -= summ/10
+    fmt.Println("Сумма чека превышает 10000, поэтому вам сделана скидка в 10%!")
+  }
+
+  fmt.Println("Итого:", summ)
+}
