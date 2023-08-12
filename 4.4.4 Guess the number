@@ -1,0 +1,47 @@
+//Напишите программу, которая угадывает число, задуманное пользователем от 1 до 5. Программа должна спрашивать, больше или меньше задуманное число (от какого-то другого числа) и на основе ответов пользователя определить то, что он загадал.
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+  var answer string
+  number := 3
+	fmt.Println("Загадайте число от 1 до 5")
+  fmt.Print("Ваше число ", number, "?\n")
+  fmt.Scan(&answer)
+  
+  if answer == "Да" {
+    return
+  } else if answer == "Нет" {
+    fmt.Println("Ваше число больше или меньше данного числа?")
+    fmt.Scan(&answer)
+    if answer == "Больше" {
+      fmt.Print("Ваше число ", number+1 , "?\n")
+      fmt.Scan(&answer)
+      if answer == "Да" {
+        return
+      } else if answer == "Нет" {
+        fmt.Print("Ваше число ", number+2 , "?\n")
+        fmt.Scan(&answer)
+        if answer == "Да" {
+          return
+        }
+      }
+    } else if answer == "Меньше" {
+      fmt.Print("Ваше число ", number-1 , "?\n")
+      fmt.Scan(&answer)
+      if answer == "Да" {
+          return
+      } else if answer == "Нет" {
+          fmt.Print("Ваше число ", number-2 , "?\n")
+          fmt.Scan(&answer)
+          if answer == "Да" {
+          return
+        }
+      }
+    }
+  }
+}
