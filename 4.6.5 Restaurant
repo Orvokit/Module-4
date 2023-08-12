@@ -1,0 +1,57 @@
+//Напишите программу, которая запрашивает день недели, число гостей и сумму чека и рассчитывает сумму к оплате. В ресторане действуют следующие правила:
+  // по понедельникам должна применяться скидка 10% на всё меню, потому что понедельник — день тяжёлый;
+  // по пятницам, если сумма чека превышает 10 000 рублей, включается дополнительная скидка в размере 5%;
+  // если число гостей в одной компании превышает пять человек, автоматически         включается надбавка на обслуживание 10%.
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+  var day, visitors  int
+  var check, allowance, discount1, discount5 float64 //типа float64, потому что я буду умножать на 0.1, а int не умножается на число с плавающей запятой
+	fmt.Println("Введите день недели цифрой, где")
+  fmt.Println("  1 - понедельник")
+  fmt.Println("  2 - вторник")
+  fmt.Println("  3 - среда")
+  fmt.Println("  4 - четверг")
+  fmt.Println("  5 - пятница")
+  fmt.Println("  6 - суббота")
+  fmt.Println("  7 - воскресенье")
+  fmt.Scan(&day)
+  fmt.Print("Введите число гостей: ")
+  fmt.Scan(&visitors)
+  fmt.Print("Введите сумму чека: ")
+  fmt.Scan(&check)
+
+  if day == 1 {
+    discount1 = check * 0.1 //скидка по понедельникам
+    check = check - discount1
+    fmt.Println("Скидка по понедельникам 10%:", discount1)
+    if visitors > 5 {
+      allowance = check * 0.1 //надбавка на обслуживание от 5 гостей
+      check = check + allowance
+      fmt.Println("Надбавка на обслуживание 10%:", allowance)
+    }
+    fmt.Println("Сумма к оплате:", check)
+  } else if day == 5 && check >10000 {
+    discount5 = check * 0.05 //скидка по пятницам
+    check = check - discount5
+    fmt.Println("Скидка по пятницам при сумме чека больше 10000 5%:", discount5)
+    if visitors > 5 {
+      allowance = check * 0.1 //надбавка на обслуживание от 5 гостей
+      check = check + allowance
+      fmt.Println("Надбавка на обслуживание 10%:", allowance)
+    }
+    fmt.Println("Сумма к оплате:", check)
+  } else if visitors > 5 {
+      allowance = check * 0.1 //надбавка на обслуживание от 5 гостей
+      check = check + allowance
+      fmt.Println("Надбавка на обслуживание 10%:", allowance)
+      fmt.Println("Сумма к оплате:", check)
+  } else {
+    fmt.Println("Сумма к оплате:", check)
+  }
+}
