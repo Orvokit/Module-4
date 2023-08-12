@@ -1,0 +1,22 @@
+/* Напишите программу, которая проверяет, делится ли одно число на другое без остатка. */
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+  var FirstNumber, SecondNumber int
+	fmt.Print("Введите первое число: ")
+  fmt.Scan(&FirstNumber)
+  fmt.Print("Введите второе число: ")
+  fmt.Scan(&SecondNumber)
+
+  if FirstNumber % SecondNumber == 0 {
+    fmt.Print("Число ", FirstNumber, " кратно ", SecondNumber, ".")
+  } else if SecondNumber % FirstNumber == 0 {
+    fmt.Print("Число ", SecondNumber, " кратно ", FirstNumber, ".")
+  } else {
+    fmt.Println("Числа не кратны друг другу.")
+  }
+}
