@@ -1,0 +1,29 @@
+/*
+Напишите программу, которая ищет минимум из двух чисел.
+Подсказка: учтите, что числа могут быть равны!
+*/
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+  var a, b, min int
+	fmt.Println("Введите первое число:")
+  fmt.Scan(&a)
+  fmt.Println("Введите второе число:")
+  fmt.Scan(&b)
+
+  if a < b {
+    min = a
+    fmt.Println("Первое число меньше и равно", min)
+  } else if b < a {
+    min = b
+    fmt.Println("Второе число меньше и равно", min)
+  } else {
+    min = a
+    fmt.Println("Числа равны")
+  }
+}
