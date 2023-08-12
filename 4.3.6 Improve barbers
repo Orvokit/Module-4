@@ -1,0 +1,32 @@
+/*
+Кстати, именно оператор % мог помочь нам с барберами. Перепишите программу про барбершопы с использованием % , для проверки на проблему с целочисленным делением.
+*/
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println("Сколько мужчин проживает в городе?")
+  var menCount int
+  fmt.Scan(&menCount)
+  fmt.Println("Сколько всего барберов уже работает во всех барбершопах?")
+  var barberCount int
+  fmt.Scan(&barberCount)
+  fmt.Println(barberCount, "барбера могут постричь за месяц", barberCount*8*30, "мужчин.")
+  var barberNeed int
+  if menCount % (8*30) == 0 {
+    barberNeed = menCount / (8*30)
+  } else {
+    barberNeed = menCount / (8*30) + 1
+  }
+  fmt.Println("Необходимое число барберов:", barberNeed)
+  if barberNeed <= barberCount {
+    fmt.Println("Имеющихся барберов достаточно для того, чтобы обслужить всех мужчин города.")
+  }
+  if barberNeed > barberCount {
+    fmt.Println("Имеющихся барберов НЕ достаточно для того, чтобы обслужить всех мужчин города. Не хватает:", barberNeed - barberCount)
+  }
+}
