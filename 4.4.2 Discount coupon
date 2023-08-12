@@ -1,0 +1,28 @@
+//Напишите программу — скидочный калькулятор для ресторана. Скидка действует только в будний день. Пользователь вводит номер дня недели (от 1 до 7) и сумму чека, программа рассчитывает сумму скидки как 10% от суммы чека, начиная с 10 000 руб, если этот день не будний.
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+  var DayOfTheWeek int 
+  var check float64
+	fmt.Println("Введите день недели.")
+  fmt.Scan(&DayOfTheWeek)
+  fmt.Println("Введите сумму чека.")
+  fmt.Scan(&check)
+  
+  if DayOfTheWeek >= 1 && DayOfTheWeek <= 5 {
+    DiscountAmount := check * 0.1
+    fmt.Println("Размер скидки:", DiscountAmount)
+  } else if DayOfTheWeek < 1 || DayOfTheWeek > 7 {
+    fmt.Println("День недели не может быть меньше 1 и больше 7.")
+  } else if check >= 10000 {
+    DiscountAmount := check * 0.1
+    fmt.Println("Размер скидки:", DiscountAmount)
+  } else {
+    fmt.Println("Скидка не предусмотрена.")
+  }
+}
